@@ -10,6 +10,8 @@ root.configure(background="#FF10F0")
 root.minsize(width=420, height=100)
 root.resizable(width=False, height=False)
 
+# video url https://youtu.be/N_Maw56tLCI
+
 def open_file():
     global directory
     directory = askdirectory()
@@ -17,9 +19,9 @@ def open_file():
 
 def download():
     if len(link.get()) == 0:
-        messagebox.showerror("😱 Oh-Oh! Link is empty??!", "🙄 Link cannot be empty...tsk tsk")
+        messagebox.showerror("😱 Oh-Oh! 🤨 Link is empty??!", "🙄 Link cannot be empty...tsk tsk")
     else:
-        YouTube(link.get()).streams.first().download(directory)
+        YouTube(link.get()).streams.get_highest_resolution().download(directory)
         messagebox.showinfo("🎉 Done! 😎 You're now a KP💖P Snatcher!", "🥰 Exiting!!! 🤫 But shush! It's totally illegal.")
         link_entry.delete(0, 'end')
 
